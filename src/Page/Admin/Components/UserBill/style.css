@@ -16,3 +16,13 @@
     border: 2px solid rgba(137, 43, 226, 0.747);
     border-radius: 10px;
 }
+
+.td {
+    padding: 10px;
+}
+
+.td-product {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ccc;
+}

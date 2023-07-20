@@ -31,6 +31,11 @@ const Sidebar: React.FC = () => {
             Xem hóa đơn
           </Link>
         </li>
+        <li>
+          <Link className="sidebar_link fs-22 " to="/admin/sales">
+            Xem doanh số
+          </Link>
+        </li>
       </ul>
     </React.Fragment>
   );

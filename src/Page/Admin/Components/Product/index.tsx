@@ -109,8 +109,8 @@ const Product: React.FC = () => {
         <thead>
           <tr>
             <th>#</th>
-            <th>Tên sản phẩm</th>
             <th>Loại sản phẩm</th>
+            <th>Tên sản phẩm</th>
             <th>Giá tiền</th>
             <th>Ảnh sản phẩm</th>
             <th>Action</th>

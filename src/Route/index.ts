@@ -3,11 +3,12 @@ import {v4 as uuidv4} from "uuid"
 import Landing from "../Page/Landing";
 import Login from "../Page/Login";
 import Product from "../Page/Admin/Components/Product";
-import Admin from "../Page/Admin";
+// import Admin from "../Page/Admin";
 import AddProduct from "../Page/Admin/Components/AddProduct";
 import User from "../Page/Admin/Components/User";
 import AddUser from "../Page/Admin/Components/AddUser";
 import UserBill from "../Page/Admin/Components/UserBill";
+import Sales from "../Page/Admin/Components/Sales";
 export interface Route {
     id:string,
   path: string;
@@ -54,5 +55,10 @@ export const privateRouter: Route[] = [
     id:uuidv4(),
     path: "/admin/user-bill",
     element: UserBill,
+  },
+  {
+    id:uuidv4(),
+    path: "/admin/sales",
+    element: Sales,
   },
 ];

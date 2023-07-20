@@ -1,35 +1,41 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Admin from "../..";
 import Input from "../../../../Components/Input";
-import "./style.css";
 import Button from "../../../../Components/Button";
-import { v4 as uuidv4 } from "uuid";
+import "./style.css";
+
 const AddProduct = () => {
   const [value, setValue] = useState({
     idProduct: "",
-    imgProduct: "",
-    titleProduct: "",
-    titleItem: "",
-    titlePrice: "",
+    imgproduct: "",
+    titleproduct: "",
+    titleitem: "",
+    titleprice: "",
   });
+
   const API_ENDPOINT = "https://649be5960480757192371734.mockapi.io/product";
+
   const handleChangeValue = (e: any) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setValue({
-      ...value,
+    const { name, value } = e.target;
+    setValue((prevState) => ({
+      ...prevState,
       [name]: value,
-    });
+    }));
   };
+
   const handleSubmit = async () => {
     try {
       const data = {
         idProduct: uuidv4(),
-        imgProduct: value.imgProduct,
-        titleProduct: value.titleProduct,
-        titleItem: value.titleItem,
-        titlePrice: value.titlePrice,
+        imgProduct: value.imgproduct,
+        titleProduct: value.titleproduct,
+        titleItem: value.titleitem,
+        titlePrice: value.titleprice,
       };
+
+      console.log("data", data);
+
       const response = await fetch(API_ENDPOINT, {
         method: "POST",
         headers: {
@@ -41,13 +47,15 @@ const AddProduct = () => {
       if (response.ok) {
         // New product added successfully
         console.log("Product added successfully");
+        console.log(value);
+
         // Reset the form fields
         setValue({
           idProduct: "",
-          imgProduct: "",
-          titleProduct: "",
-          titleItem: "",
-          titlePrice: "",
+          imgproduct: "",
+          titleproduct: "",
+          titleitem: "",
+          titleprice: "",
         });
       } else {
         throw new Error("Add product request failed");
@@ -64,31 +72,31 @@ const AddProduct = () => {
         <h1>Thêm sản phẩm</h1>
         <div className="form_add">
           <Input
-            name="titleProduct"
+            name="titleproduct"
             type="text"
             label="Loại sản phẩm"
-            value={value.titleProduct}
+            value={value.titleproduct}
             onChange={handleChangeValue}
           />
           <Input
-            name="imgProduct"
+            name="imgproduct"
             type="text"
             label="Hình ảnh (URL)"
-            value={value.imgProduct}
+            value={value.imgproduct}
             onChange={handleChangeValue}
           />
           <Input
-            name="titleProduct"
+            name="titleitem"
             type="text"
             label="Tên sản phẩm"
-            value={value.titleItem}
+            value={value.titleitem}
             onChange={handleChangeValue}
           />
           <Input
-            name="titlePrice"
+            name="titleprice"
             type="text"
             label="Giá sản phẩm"
-            value={value.titlePrice}
+            value={value.titleprice}
             onChange={handleChangeValue}
           />
           <Button title="Submit" style="btn_submit" onClick={handleSubmit} />
