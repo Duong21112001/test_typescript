@@ -12,7 +12,7 @@ interface ProductData {
   titlePrice: string;
 }
 
-const API_ENDPOINT = "https://649be5960480757192371734.mockapi.io/product";
+const API_ENDPOINT = "https://64ba0cde79b7c9def6c18adb.mockapi.io/product";
 const ITEMS_PER_PAGE = 5;
 
 const Product: React.FC = () => {
@@ -241,7 +241,13 @@ const EditProduct: React.FC<EditProductProps> = ({
         />
       </td>
       <td>
-        <img className="image_product" src={editedItem.imgProduct} alt="" />
+      <input
+          type="text"
+          name="imgProduct"
+          value={editedItem.imgProduct}
+          onChange={handleInputChange}
+        />
+        
       </td>
       <td>
         <button onClick={handleSave}>Lưu</button>
